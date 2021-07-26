@@ -4,42 +4,42 @@ var items = 16;
 var bombs= [];
 const numMin = 1;
 var numMax;
-var qty = numMax - items        // numero di volte che si chiede all'utente di mettere un numero
 var userNumbers = [];           // array di numeri che l'utente inserisce
 var punteggio = 0;              // punteggio che si incrementa
 
 do {
-    var difficulty = prompt('Scegli la difficoltà: Facile | Intermedia | Difficile');
-    difficulty = difficulty.toLowerCase();
-} while ((difficulty != 'facile' && (difficulty != 'intermedia') && (difficulty != 'difficile')))
+    var difficulty = prompt('Scegli la difficoltà: 0 - Facile | 1 - Intermedia | 2 - Difficile');
+} while ((difficulty != '0') && (difficulty != '1') && (difficulty != '2'))
 
 
 switch (difficulty) {
     // con difficoltà 0 => tra 1 e 100
-    case 'facile':
+    case '0':
         numMax = 100;
         break;
-    // con difficoltà 1 => tra 1 e 80
-    case 'intermedia':
+        // con difficoltà 1 => tra 1 e 80
+        case '1':
         numMax = 80;
         break;
-
-    // con difficoltà 2 => tra 1 e 50
-    case 'difficile':
+            
+        // con difficoltà 2 => tra 1 e 50
+        case '2':
         numMax = 50;
         break;
 }
-
+            
 console.log(randomGen(numMin, numMax));
 
-
+            
+var qty = numMax - items;      // numero di volte che si chiede all'utente di mettere un numero
+            
 // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
 // L’utente non può inserire più volte lo stesso numero.
 while(userNumbers.length < qty){
     var numUser = parseInt(prompt('Inserisci un numero tra ' + numMin + ' e ' + numMax));
     console.log(numUser);
     if ((userNumbers.indexOf(numUser) == -1) && (isNaN(numUser) == false) && (numUser >= numMin && numUser <= numMax)){
-        userNumbers.push(numUser);
+        pushInArray(userNumbers, numUser);
         punteggio += 1;
     }
     // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
@@ -76,3 +76,6 @@ function randomGen (min, max){
     return bombs
 }
 
+function pushInArray (array, element) {
+    return array.push(element);
+}
