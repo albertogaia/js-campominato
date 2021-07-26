@@ -79,3 +79,4 @@ function randomGen (min, max){
 function pushInArray (array, element) {
     return array.push(element);
 }
+
