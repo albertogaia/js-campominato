@@ -1,12 +1,34 @@
+
 // Il computer deve generare 16 numeri casuali (le nostre bombe) tra 1 e 100.
 var items = 16;
 var bombs= [];
 const numMin = 1;
-const numMax = 100;
-
+var numMax;
 var qty = numMax - items        // numero di volte che si chiede all'utente di mettere un numero
 var userNumbers = [];           // array di numeri che l'utente inserisce
 var punteggio = 0;              // punteggio che si incrementa
+
+do {
+    var difficulty = prompt('Scegli la difficoltà: Facile | Intermedia | Difficile');
+    difficulty = difficulty.toLowerCase();
+} while ((difficulty != 'facile' && (difficulty != 'intermedia') && (difficulty != 'difficile')))
+
+
+switch (difficulty) {
+    // con difficoltà 0 => tra 1 e 100
+    case 'facile':
+        numMax = 100;
+        break;
+    // con difficoltà 1 => tra 1 e 80
+    case 'intermedia':
+        numMax = 80;
+        break;
+
+    // con difficoltà 2 => tra 1 e 50
+    case 'difficile':
+        numMax = 50;
+        break;
+}
 
 console.log(randomGen(numMin, numMax));
 
@@ -17,7 +39,7 @@ while(userNumbers.length < qty){
     var numUser = parseInt(prompt('Inserisci un numero tra ' + numMin + ' e ' + numMax));
     console.log(numUser);
     if ((userNumbers.indexOf(numUser) == -1) && (isNaN(numUser) == false) && (numUser >= numMin && numUser <= numMax)){
-        pushInArray(userNumbers, numUser);
+        userNumbers.push(numUser);
         punteggio += 1;
     }
     // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
@@ -48,12 +70,9 @@ function randomGen (min, max){
     while(bombs.length < items) {
         var random = Math.floor(Math.random() * ((max - min + 1)) + 1);
         if(bombs.indexOf(random) == -1 ) {          //se il numero generato randomicamente non è presente nell'array ( == -1), lo pusho 
-            pushInArray(bombs, random)
+            bombs.push(random);
         }
     }
     return bombs
 }
 
-function pushInArray (array, element) {
-    return array.push(element);
-}
