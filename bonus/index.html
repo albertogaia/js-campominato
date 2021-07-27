@@ -8,8 +8,28 @@
     <title>Bonus</title>
 </head>
 <body>
-    <h1 id="title">Campo Minato</h1>
-    <div id="campo" class="clearfix">
+    <div class="row">
+        <h1 id="title">Campo Minato</h1>
+    </div>
+    
+    <div class="row" id="difficulty">
+        <h4>Seleziona la difficoltà:</h4>
+        <select onclick="reloadPage()" name="difficultySelection" id="difficultySelection">
+            <option value="0">FACILE</option>
+            <option value="1">INTERMEDIA</option>
+            <option value="2">DIFFICILE</option>
+        </select>
+        <div class="buttonCTA">
+            <button id="startGame" onclick="startGame()" >COMINCIA</button>
+        </div>  
+    </div>
+    <div class="row">
+        <h3 id="punteggio" class="none">Il tuo punteggio: <span id="points"></span></h3>
+    </div>
+    <div class="row">
+        <button id="resetGame" onclick="reloadPage()" id="resetGame" class="none">RESET</button>
+    </div>
+    <div id="campo" class="clearfix none">
         <!-- <div class="square">
             <div data-cella="1" id="cella"></div>
         </div> -->
