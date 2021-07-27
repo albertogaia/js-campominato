@@ -15,7 +15,7 @@ var punteggio = 0;              // punteggio che si incrementa
 switch (difficulty) {
     // con difficoltà 0 => tra 1 e 100
     case '0':
-        numMax = 20;
+        numMax = 100;
     break;
 
     // con difficoltà 1 => tra 1 e 80
@@ -39,15 +39,17 @@ document.getElementById('campo').addEventListener('click',
     function(e) {
         let numUser = parseInt(e.target.dataset.cella);
         let element = document.querySelectorAll('[data-cella="' + numUser + '"]');
-        
         let userNumbers = [];
 
         do {
             if (punteggio === qty - 1){
                 element[0].classList.add('gold');
                 document.getElementById('points').innerHTML = punteggio;
-                document.getElementById('campo').style.pointerEvents = 'none'
-                alert('Hai vinto')
+                document.getElementById('campo').style.pointerEvents = 'none';
+                play_victory();
+                document.getElementById('pointsWin').innerHTML = punteggio;
+                document.getElementById('punteggio').style.display= 'none';
+                document.getElementById('resultsWin').style.display= 'block';
                 punteggio += 1;
                 return;
             }
@@ -61,16 +63,19 @@ document.getElementById('campo').addEventListener('click',
                 pushInArray(userNumbers, numUser);
                 element[0].classList.add('green');
                 punteggio += 1;
+                play_sound();
                 document.getElementById('points').innerHTML = punteggio; 
                 return;
             }
 
             if(bombs.includes(numUser) == true){
                 element[0].classList.add('red');
-                document.getElementById('campo').style.pointerEvents = 'none'
-                alert('hai perso');
-                punteggio += 0;
-                document.getElementById('points').innerHTML = punteggio;
+                play_lose();
+                document.getElementById('campo').style.pointerEvents = 'none';
+                // punteggio += 0;
+                document.getElementById('pointsLost').innerHTML = punteggio;
+                document.getElementById('punteggio').style.display= 'none';
+                document.getElementById('results').style.display= 'block';
                 return;
             }  
         } while(userNumbers.length < qty)
@@ -126,4 +131,21 @@ function startGame(){
     document.getElementById('campo').style.display = 'block';
     document.getElementById('punteggio').style.display = 'block';
     document.getElementById('difficulty').style.display = 'none';
+}
+
+function play_sound() {
+    return document.getElementById('myMusic').play();
+    
+}
+
+function play_lose(){
+    return document.getElementById('myMusicLose').play();
+}
+
+function play_victory(){
+    return document.getElementById('myMusicWin').play();
+}
+
+function play_btn(){
+    return document.getElementById('myMusicBtn').play();
 }

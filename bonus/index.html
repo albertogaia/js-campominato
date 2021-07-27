@@ -14,26 +14,59 @@
     
     <div class="row" id="difficulty">
         <h4>Seleziona la difficoltà:</h4>
-        <select onclick="reloadPage()" name="difficultySelection" id="difficultySelection">
+        <select onclick="reloadPage()" name="difficultySelection" id="difficultySelection" class="btn" >
             <option value="0">FACILE</option>
             <option value="1">INTERMEDIA</option>
             <option value="2">DIFFICILE</option>
         </select>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>FACILE</th>
+                    <th>INTERMEDIA</th>
+                    <th>DIFFICILE</th>
+                </tr>
+            </thead>
+            <tr>
+                <td><strong>N° Bombe</strong></td>
+                <td>16</td>
+                <td>16</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td><strong>Caselle</strong></td>
+                <td>100</td>
+                <td>80</td>
+                <td>50</td>
+            </tr>
+            
+        </table>
+
+        
         <div class="buttonCTA">
-            <button id="startGame" onclick="startGame()" >COMINCIA</button>
+            <button id="startGame" onclick="startGame(), play_btn()" class="btn btn-primary" >COMINCIA</button>
         </div>  
     </div>
     <div class="row">
         <h3 id="punteggio" class="none">Il tuo punteggio: <span id="points"></span></h3>
     </div>
     <div class="row">
-        <button id="resetGame" onclick="reloadPage()" id="resetGame" class="none">RESET</button>
+        <h3 id="results" class="none">HAI PERSO! :(<br>Il tuo punteggio finale è: <span id="pointsLost"></span></h3>
+        <h3 id="resultsWin" class="none">Complimenti, hai vinto!<br>Il tuo punteggio finale è: <span id="pointsWin"></span></h3>
+    </div>
+    <div class="row">
+        <button id="resetGame" onclick="play_btn(), reloadPage()" id="resetGame" class="none btn">RESET</button>
     </div>
     <div id="campo" class="clearfix none">
         <!-- <div class="square">
             <div data-cella="1" id="cella"></div>
         </div> -->
     </div>
+    <audio id="myMusic" src="sound/Synth-Pop-Small-01.m4a" preload="auto"></audio>
+    <audio id="myMusicLose" src="sound/Notification-01.wav" preload="auto"></audio>
+    <audio id="myMusicWin" src="sound/success-sound-effect.mp3" preload="auto"></audio>
+    <audio id="myMusicBtn" src="sound/Little-Snap-01.wav" preload="auto"></audio>
     <script src="../bonus/bonus.js"></script>
 </body>
 </html>
