@@ -8,52 +8,12 @@
     <title>Bonus</title>
 </head>
 <body>
-<h1 id="title">Campo Minato</h1>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div id="selectDiff">
-                <h3>Seleziona la difficoltà:</h3>
-            
-                <select name="difficoltaList" id="difficoltaList">
-                    <option value="Facile">Facile</option>
-                    <option value="Intermedia">Intermedia</option>
-                    <option value="Difficile">Difficile</option>
-                </select>
-                <button onclick="selectDiff(), show('step2'), hide('selectDiff')" id="submitDifficulty">Inizia</button>
-            </div>
-            
-
-            <div id="step2">
-                <h3>Difficoltà selezionata: <span id="diff"></span></h3>
-                <h3>Bombe: <span id="bombs"></span></h3>
-                <h3>Numeri da indovinare: <span id="indovina"></span></h3>
-                <label for="number">Inserisci un numero tra <span id="range"></span></label>
-                <input type="number" name="number" id="number" placeholder="Inserisci un numero">
-                <button onclick="sendNumber()">Invia numero</button>
-
-                <h4>I tuoi punti: <span id="point"></span></h4>
-
-                <h4>I tuoi numeri:</h4>
-                <ul id="user_numbers"></ul>
-
-                <button onclick="reload()" id="reset">Reset</button>
-            </div>
-        </div>
-        <div class="col">
-            <h2>I numeri del computer</h2>
-            <button onclick="show('listPC')" id="show">Mostra</button>
-            <button  onclick="hide('listPC')"  id="hide">Nascondi</button>
-            <div>
-                <ul id="listPC">
-
-                </ul>
-            </div>
-        </div>
+    <h1 id="title">Campo Minato</h1>
+    <div id="campo" class="clearfix">
+        <!-- <div class="square">
+            <div data-cella="1" id="cella"></div>
+        </div> -->
     </div>
-</div>
-
-
-    <script src="../bonus/test.js"></script>
+    <script src="../bonus/bonus.js"></script>
 </body>
 </html>

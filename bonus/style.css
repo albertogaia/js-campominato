@@ -7,27 +7,49 @@
 h1 {
     text-align: center;
     margin: 0 auto;
-    padding: 30px 0px;
+    padding: 10px 0px;
+    
 }
-.container {
-    max-width: 80%;
-    margin: 0 auto;
+
+.clearfix::after {
+   content: '';
+   display: table;
+   clear: both;
 }
-.row {
+
+#campo {
+    width: 50vw;
+    height: 50vw;
+    margin: auto;
+}
+
+#cella {
     width: 100%;
+    height: 100%;
+    border: 1px solid grey;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.square:hover{
+    background-color: rgba(244, 237, 184, 0.808);
 }
 
-.row * {
-    margin: 10px 0px;
+.red {
+    background-color: rgb(208, 78, 78);
 }
 
-.col {
-    width: 50%;
+.green {
+    background-color: rgb(65, 164, 65);
 }
 
-#listPC, #step2{
-    display: none;
+.square {
+    width: calc(50vw / 10);
+    height: calc(50vw / 10);
+    background-color: rgba(244, 237, 184, 0.577);
+    float: left;
+    /* border: 1px solid gainsboro; */
 }
 /* COMMON */
 
