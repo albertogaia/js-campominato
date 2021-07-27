@@ -1,6 +1,6 @@
 
 // Il computer deve generare 16 numeri casuali (le nostre bombe) tra 1 e 100.
-var items = 16;
+var items = 5;
 var bombs= [];
 const numMin = 1;
 var numMax;
@@ -15,7 +15,7 @@ var punteggio = 0;              // punteggio che si incrementa
 switch (difficulty) {
     // con difficoltà 0 => tra 1 e 100
     case '0':
-        numMax = 100;
+        numMax = 10;
     break;
 
     // con difficoltà 1 => tra 1 e 80

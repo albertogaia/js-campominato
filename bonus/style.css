@@ -8,6 +8,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.container {
+    min-height: 100vh;
+    background-image: url(../bonus/img/bgsoldier.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 h1 {
     font-family: 'Abril Fatface', cursive;
     text-align: center;
@@ -50,7 +58,7 @@ h1 {
     cursor: pointer;
 }
 .square:hover{
-    background-color: rgba(244, 237, 184, 0.808);
+    filter: brightness(0.8);
 }
 
 .row {
@@ -62,6 +70,7 @@ h1 {
 }
 table {
     margin: 15px auto;
+    background-color: white;
 }
 table tr, table td, table th{
     padding: 5px 10px;
@@ -82,7 +91,7 @@ table tr, table td, table th{
 .square {
     width: calc(50vw / 10);
     height: calc(50vw / 10);
-    background-color: rgba(244, 237, 184, 0.577);
+    background-color: rgba(244, 237, 184, 1);
     float: left;
     /* border: 1px solid gainsboro; */
 }
