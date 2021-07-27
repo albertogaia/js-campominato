@@ -9,10 +9,23 @@ body {
 }
 
 h1 {
+    font-family: 'Abril Fatface', cursive;
     text-align: center;
     margin: 0 auto;
-    padding: 10px 0px;
-    
+    padding: 5px 0px;
+    text-transform: uppercase;
+    font-size: 50px;  
+    color: rgb(53, 99, 53);
+    text-shadow: 2px 2px 3px white;
+}
+
+.titleBG{
+    background-image:
+    url('https://snipstock.com/assets/cdn/png/b05c300b967ddabd32e3c38d10ee777c.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: 55vw;
+    padding: 30px;
 }
 
 .clearfix::after {
@@ -21,9 +34,9 @@ h1 {
    clear: both;
 }
 
+
 #campo {
     width: 50vw;
-    height: 50vw;
     margin: auto;
 }
 
@@ -45,7 +58,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 table {
     margin: 15px auto;
