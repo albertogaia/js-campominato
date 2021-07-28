@@ -7,10 +7,9 @@ var numMax;
 var punteggio = 0;              // punteggio che si incrementa
 
 
-// do {
-    var difficulty = document.getElementById('difficultySelection').value;
-    console.log(difficulty)
-// } while ((difficulty != '0') && (difficulty != '1') && (difficulty != '2'))
+
+var difficulty = document.getElementById('difficultySelection').value;
+console.log(difficulty)
 
 switch (difficulty) {
     // con difficoltà 0 => tra 1 e 100
@@ -134,8 +133,8 @@ function startGame(){
 }
 
 function play_sound() {
+    document.getElementById('myMusic').currentTime = 0;
     return document.getElementById('myMusic').play();
-    
 }
 
 function play_lose(){
@@ -148,4 +147,8 @@ function play_victory(){
 
 function play_btn(){
     return document.getElementById('myMusicBtn').play();
+}
+
+function resetCampo(){
+    return document.getElementById('campo').innerHTML="";
 }
